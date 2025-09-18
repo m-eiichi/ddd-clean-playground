@@ -12,5 +12,5 @@
     }
   },
   "forwardPorts": [8000],
-  "postCreateCommand": "poetry install"
+  // "postCreateCommand": "poetry install"
 }

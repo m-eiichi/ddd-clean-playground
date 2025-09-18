@@ -1,16 +1,26 @@
-[tool.poetry]
-name = "my-app"
+[project]
+name = "app"
 version = "0.1.0"
-description = "Clean Architecture with FastAPI"
-authors = ["Your Name <you@example.com>"]
+description = "Clean Architecture Playground with FastAPI"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-fastapi = "^0.111.0"
-uvicorn = "^0.30.0"
-pydantic = "^2.9.0"
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
 
-[tool.poetry.dev-dependencies]
-pytest = "^8.3.0"
-black = "^24.8.0"
-isort = "^5.13.2"
+# パッケージのルートを指定
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
